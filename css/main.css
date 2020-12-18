@@ -1,0 +1,60 @@
+body {
+    background-image: url("./../images/homedivbackground.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.homedivinner {
+    background-image: url("./../images/homedivinnerbackground.jpg");
+    width: 600px;
+    height: 500px;
+    margin: auto;
+    vertical-align: middle;
+    display: grid;
+    grid-template-areas: 
+        'homexbox homeps';
+}
+
+.homexbox {
+    display: grid;
+    grid-template-areas: 
+    'xboximg'
+    'xboxlogin'
+    'xboxregister';
+}
+
+.homeps {
+    display: grid;
+    grid-template-areas: 
+    'psimg'
+    'pslogin'
+    'psregister';
+}
+
+.xboxbtn {
+    border-radius: 8px;
+    background-color:  #0e7a0d;
+    height: 75px;
+    width: 150px;
+    color: white;
+    font-size: 25px;
+    margin-left: 75px;
+}
+
+.xboxbtn:hover, .psbtn:hover{
+    color: black;
+    background-color: white;
+    -ms-transform: scale(1.25); /* IE 9 */
+    -webkit-transform: scale(1.25); /* Safari 3-8 */
+    transform: scale(1.25);
+}
+
+.psbtn {
+    border-radius: 8px;
+    background-color:  #006fcd;
+    height: 75px;
+    width: 150px;
+    color: white;
+    font-size: 25px;
+    margin-left: 75px;
+}
