@@ -4,13 +4,12 @@ body {
     background-size: cover;
 }
 
-#homedivinner {
+#homediv {
     background-image: url("./../images/homedivinnerbackground.jpg");
     width: 600px;
     height: 500px;
     margin: auto;
     margin-top: 100px;
-    padding-bottom: 100px;
     display: grid;
     grid-template-areas: 
         'homexbox homeps';
@@ -64,4 +63,64 @@ body {
     border-radius: 8px;
     border-style: solid;
     border-color: black;
+}
+
+#xboxdiv {
+    background-image: url("./../images/homedivinnerbackground.jpg");
+    width: 600px;
+    height: 400px;
+    margin: auto;
+    margin-top: 100px;
+    display: grid;
+    grid-template-areas: 
+        'child1 child2';
+    overflow: scroll;
+}
+
+#child1 #xboximg {
+    margin-top: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+    -ms-transform: scale(1.25); /* IE 9 */
+    -webkit-transform: scale(1.25); /* Safari 3-8 */
+    transform: scale(1.25);
+}
+
+#child2 #loginxbox form div {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#child2 #loginxbox form {
+    margin-top: 75px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+input[type=text], input[type=password], input[type=email], input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+input[type=submit] {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 25px;
+    background-color: #0e7a0d;
+    color: white;
+    border-radius: 8px;
+}
+
+header img {
+    margin-top: 15px;
+    margin-left: 900px;
+}
+
+header img:hover {
+    -ms-transform: scale(1.25); /* IE 9 */
+    -webkit-transform: scale(1.25); /* Safari 3-8 */
+    transform: scale(1.25);
 }
