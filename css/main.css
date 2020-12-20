@@ -146,6 +146,15 @@ header img:hover {
     transform: scale(1.25);
 }
 
+#child1 #forgotimg {
+    margin-top: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+    -ms-transform: scale(1.25); /* IE 9 */
+    -webkit-transform: scale(1.25); /* Safari 3-8 */
+    transform: scale(1.25);
+}
+
 #child2 #loginps form div {
     font-size: 25px;
     font-weight: bold;
@@ -164,4 +173,10 @@ header img:hover {
     background-color: #006fcd;
     color: white;
     border-radius: 8px;
+}
+
+#forgotpassword {
+    font-size: 10px;
+    text-align: center;
+    font-style: italic;
 }

@@ -1,0 +1,35 @@
+<html>
+<head>
+    <link rel="stylesheet" href="./css/main.css">
+    <title>
+        Forgot Password
+    </title>
+</head>
+<body>
+    <header>
+        <img src="images/homebtn.png" width="70px" height="70px" onclick="location.href='home.html'"/>
+    </header>
+    <div id="psdiv">
+        <div id="child1">
+            <div id="psimg">
+                <img src="./images/forgot.png" width="200px" height="200px" />
+            </div>
+        </div>
+        <div id="child2">
+            <div id="loginps">
+                <form method="POST" action="./lib/forgot.php">
+                    <div>
+                        Enter Registerd Phone Number:
+                        <br>
+                        <input type="text" required autofocus name="phno"/>
+                    </div>
+                    <br>
+                    <br>
+                    <div>
+                        <input type="submit" name="submit" value="Verify">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

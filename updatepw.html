@@ -1,0 +1,58 @@
+<html>
+<head>
+    <link rel="stylesheet" href="./css/main.css">
+    <title>
+        Reset Password
+    </title>
+</head>
+<body>
+    <script>
+        function check_pass() {
+            var p1 = document.getElementById("p1").value;
+            var p2 = document.getElementById("p2").value;
+            if (p1 == p2) {
+                document.getElementById('message').style.color = 'green';
+                document.getElementById('message').innerHTML = 'Passwords match.';
+                document.getElementById('submit').disabled = false;
+            }
+            else {
+                document.getElementById('message').style.color = 'red';
+                document.getElementById('message').innerHTML = 'Passwords do not match.';
+                document.getElementById('submit').disabled = true;
+            }
+            
+        }
+    </script>
+    <header>
+        <img src="images/homebtn.png" width="70px" height="70px" onclick="location.href='home.html'"/>
+    </header>
+    <div id="psdiv">
+        <div id="child1">
+            <div id="forgotimg">
+                <img src="./images/forgot.png" width="200px" height="200px" />
+            </div>
+        </div>
+        <div id="child2">
+            <div id="loginps">
+                <form method="POST" action="./lib/updatepw.php">
+                    <div>
+                        New Password:
+                        <br>
+                        <input id="p1" type="password" required autofocus name="pass1" onkeyup="check_pass()"/>
+                    </div>
+                    <br>
+                    <div>
+                        Confirm Password: 
+                        <br>
+                        <input id="p2" type="password" required autofocus name="pass2" onkeyup="check_pass()"/>
+                    </div>
+                    <br>
+                    <span id='message'></span>
+                    <div>
+                        <input type="submit" name="submit" value="Reset Password">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
