@@ -32,8 +32,10 @@
     if(count($errors) == 0) {
         $query = "INSERT INTO gamers (gamerid, name, email, password, phnum, privacy,platform) VALUES ('$id', '$name', '$email', '$pass', '$ph', '$privacy','$platform')"; 
         mysqli_query($mysqli, $query);
-        header('location: ../home.html');
+        header('location: ../xboxlogin.html');
     }
-
-    include('./error.php');
+    else {
+        echo "<script>alert('Username already exists.');</script>";
+        echo "<script>window.location.href='../xboxregister.html';</script>";
+    }
 ?>
