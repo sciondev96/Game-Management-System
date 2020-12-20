@@ -1,0 +1,95 @@
+<html>
+<head>
+    <link rel="stylesheet" href="./css/main.css">
+    <title>
+        PlayStation Register
+    </title>
+</head>
+<body>
+    <script>
+        function check_pass() {
+            var p1 = document.getElementById("p1").value;
+            var p2 = document.getElementById("p2").value;
+            if (p1 == p2) {
+                document.getElementById('message').style.color = 'green';
+                document.getElementById('message').innerHTML = 'Passwords match.';
+                document.getElementById('submit').disabled = false;
+            }
+            else {
+                document.getElementById('message').style.color = 'red';
+                document.getElementById('message').innerHTML = 'Passwords do not match.';
+                document.getElementById('submit').disabled = true;
+            }
+            
+        }
+    </script>
+    <header>
+        <img src="images/homebtn.png" width="70px" height="70px" onclick="location.href='home.html'"/>
+    </header>
+    <div id="psdiv">
+        <div id="child1">
+            <div id="psimg">
+                <img src="./images/pslogo.jpg" width="200px" height="200px" />
+            </div>
+        </div>
+        <div id="child2">
+            <div id="loginps">
+                <form method="POST" action="./lib/psregister.php">
+                    <div>
+                        Name:
+                        <br>
+                        <input type="text" required autofocus name="psname"/>
+                    </div>
+                    <br>
+                    <div>
+                        GamerID:
+                        <br>
+                        <input type="text" required name="psgamerid">
+                    </div>
+                    <br>
+                    <div>
+                        Email:
+                        <br>
+                        <input type="email" required name="psemail"/>
+                    </div>
+                    <br>
+                    <div>
+                        Password:
+                        <br>
+                        <input type="password" required name="pspass" onkeyup="check_pass()" id="p1"/>
+                    </div>
+                    <br>
+                    <div>
+                        Confirm Password:
+                        <br>
+                        <input type="password" required name="pspass2" onkeyup="check_pass()" id="p2"/>
+                    </div>
+                    <span id='message'></span>
+                    <br>
+                    <div>
+                        Ph. No:
+                        <br>
+                        <input type="text" required autofocus name="psph"/>
+                    </div>
+                    <br>
+                    <div>
+                        Do you wish to make your game information public?
+                        <br>
+                        Yes <input type="radio" required name="pschoice" value="Yes"/>
+                        No <input type="radio" required name="pschoice" value="No"/>
+                    </div>
+                    <br>
+                    <div>
+                        <input type="checkbox" value="agree" required/> I agree to the Terms&Conditions.
+                        <br>
+                    </div>
+                    <br>
+                    <div>
+                        <input type="submit" name="submit" value="Register" id="submit">
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

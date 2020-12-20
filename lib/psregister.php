@@ -7,17 +7,17 @@
     $pass = "";
     $ph = "";
     $privacy = "";
-    $platform = "Xbox";
+    $platform = "PS";
 
     $errors = array(); 
 
     if($_POST['submit']) {
-        $name = mysqli_real_escape_string($mysqli, $_POST['xname']);
-        $id = mysqli_real_escape_string($mysqli, $_POST['xgamerid']);
-        $email = mysqli_real_escape_string($mysqli, $_POST['xemail']);
-        $pass = mysqli_real_escape_string($mysqli, $_POST['xpass']);
-        $ph = mysqli_real_escape_string($mysqli, $_POST['xph']);
-        $privacy = mysqli_real_escape_string($mysqli,$_POST['xchoice']);
+        $name = mysqli_real_escape_string($mysqli, $_POST['psname']);
+        $id = mysqli_real_escape_string($mysqli, $_POST['psgamerid']);
+        $email = mysqli_real_escape_string($mysqli, $_POST['psemail']);
+        $pass = mysqli_real_escape_string($mysqli, $_POST['pspass']);
+        $ph = mysqli_real_escape_string($mysqli, $_POST['psph']);
+        $privacy = mysqli_real_escape_string($mysqli,$_POST['pschoice']);
     
     }
 
