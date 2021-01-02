@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include('db.php');
 
     $id = "";
@@ -16,6 +17,7 @@
         echo "<script>window.history.back();</script>";
     }
     else {
-        header("location: ../profile.html");
+        $_SESSION['username'] = $id;
+        header("location: ./dashboard.php");
     }
 ?>

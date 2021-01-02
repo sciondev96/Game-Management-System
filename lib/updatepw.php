@@ -16,6 +16,4 @@
     else {
         header('location: ../forgot.html');
     }
-    
-
 ?>

@@ -180,3 +180,106 @@ header img:hover {
     text-align: center;
     font-style: italic;
 }
+
+#dashboard {
+    background-image: url("./../images/homedivinnerbackground.jpg");
+    width: 1200px;
+    height: 600px;
+    margin: auto;
+    margin-top: 100px;
+    display: grid;
+    grid-template-areas: 
+        'navigationbar contentarea contentarea';
+}
+
+#navigationbar {
+    display: grid;
+    grid-template-areas: 
+    'profile'
+    'newgame'
+    'updategame'
+    'allgames'
+    'logout';
+}
+
+#profile {
+    width: 400px;
+    height: 60px;
+    background-color: black;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border: wheat;
+    border-radius: 8px;
+}
+
+#newgame {
+    width: 400px;
+    height: 60px;
+    background-color: black;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border: wheat;
+    border-radius: 8px;
+}
+
+#updategame {
+    width: 400px;
+    height: 60px;
+    background-color: black;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border: wheat;
+    border-radius: 8px;
+}
+
+#allgames {
+    width: 400px;
+    height: 60px;
+    background-color: black;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border: wheat;
+    border-radius: 8px;
+}
+
+#logout {
+    width: 400px;
+    height: 60px;
+    background-color: black;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border: wheat;
+    border-radius: 8px;
+}
+
+#navigationbar div:hover {
+    background-color: salmon;
+    -ms-transform: scale(1.25); /* IE 9 */
+    -webkit-transform: scale(1.25); /* Safari 3-8 */
+    transform: scale(1.25);
+}
+
+#navigationbar div:hover a:hover {
+    background-color: salmon;
+    color: black;
+}
+
+#navigationbar div.active a.active{
+    background-color: sandybrown;
+    color: black;
+}
+
+#navigationbar div.active {
+    background-color: sandybrown;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    font-size: 35px;
+}
