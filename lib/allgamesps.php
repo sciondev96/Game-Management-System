@@ -6,7 +6,7 @@
         include('db.php');
         $gamerid = mysqli_real_escape_string($mysqli,$_SESSION['username']);
 
-        $game_check_query = "SELECT * FROM xbox WHERE gamerid='$gamerid'";
+        $game_check_query = "SELECT * FROM ps WHERE gamerid='$gamerid'";
         $res = mysqli_query($mysqli,$game_check_query);
 
         return $res;
@@ -20,19 +20,19 @@
     </head>
     <body>
         <header>
-            <img src="../images/homebtn.png" width="70px" height="70px" onclick="location.href='./dashboardxbox.php'"/>
+            <img src="../images/homebtn.png" width="70px" height="70px" onclick="location.href='./dashboardps.php'"/>
         </header>
         
         <div id="dashboard">
             <div id="navigationbar">
                 <div id="profile">
-                    <a href="./dashboardxbox.php"> Profile </a>
+                    <a href="./dashboardps.php"> Profile </a>
                 </div>
                 <div id="newgame">
-                    <a href="./newgamexbox.php" class="active"> Add Game </a>
+                    <a href="./newgameps.php" class="active"> Add Game </a>
                 </div>
                 <div id="updategame">
-                    <a href="./updategamexbox.php"> Update Game </a>
+                    <a href="./updategameps.php"> Update Game </a>
                 </div>
                 <div id="allgames" class="active">
                     <a href="#" class="active"> View Games </a>
@@ -59,13 +59,17 @@
                 <table id="displaytable">
                     <th> Game </th>
                     <th> Rating </th>
-                    <th> Gamerscore </th>
-                    <th> Completion Percentage </th>
+                    <th> Bronze </th>
+                    <th> Silver </th>
+                    <th> Gold </th>
+                    <th> Total </th>
+                    <th> Platinum </th>
                     <th> Updated On </th>
                     <?php
                         while($row = mysqli_fetch_array($res)) {
-                            echo "<tr><td>" . $row['name'] . "</td><td>" . $row['rating'] . "</td><td>". $row['gamerscore'] . "</td><td>"
-                            . $row['completion'] . "%</td><td>". $row['updatedate'] . "</td></tr>";  
+                            echo "<tr><td>" . $row['name'] . "</td><td>" . $row['rating'] . "</td><td>". $row['bronze'] . "</td><td>"
+                            . $row['silver'] . "</td><td>". $row['gold'] . "</td><td>". $row['total'] . "</td><td>".
+                            $row['platinum'] . "</td><td>". $row['updatedate'] . "</td></tr>";  
                         }
                     ?>
                 </table>
