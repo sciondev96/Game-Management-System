@@ -1,6 +1,9 @@
 <?php
     session_start();
-    include('./db.php');
+    include('db.php');
+    if(!isset($_SESSION['username'])) {
+        header('location: ../home.html');
+    }
 ?>
 
 <html>
@@ -19,13 +22,13 @@
                     <a class="active" href="#"> Profile </a>
                 </div>
                 <div id="newgame">
-                    <a href="#"> Add Game </a>
+                    <a href="./newgame.php"> Add Game </a>
                 </div>
                 <div id="updategame">
-                    <a href="#"> Update Game </a>
+                    <a href="./updategame.php"> Update Game </a>
                 </div>
                 <div id="allgames">
-                    <a href="#"> View Games </a>
+                    <a href="./allgames.php"> View Games </a>
                 </div>
                 <div id="logout">
                     <a href="#"> Logout </a>
