@@ -51,7 +51,7 @@
     </head>
     <body>
         <header>
-            <img src="../images/homebtn.png" width="70px" height="70px" onclick="location.href='./dashboard.php'"/>
+            <img src="../images/homebtn.png" width="70px" height="70px" onclick="location.href='./dashboardxbox.php'"/>
         </header>
         
         <div id="dashboard">
@@ -66,10 +66,10 @@
                     <a href="./updategamexbox.php"> Update Game </a>
                 </div>
                 <div id="allgames">
-                    <a href="./allgames.php"> View Games </a>
+                    <a href="./allgamesxbox.php"> View Games </a>
                 </div>
                 <div id="logout">
-                    <a href="#"> Logout </a>
+                    <a href="./logout.php" class="logoutref"> Logout </a>
                 </div>
             </div>
             <div id="contentarea">
