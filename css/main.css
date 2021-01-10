@@ -75,6 +75,7 @@ body {
     grid-template-areas: 
         'child1 child2';
     overflow: scroll;
+    scrollbar-width: none;
 }
 
 #child1 #xboximg {
@@ -135,6 +136,7 @@ header img:hover {
     grid-template-areas: 
         'child1 child2';
     overflow: scroll;
+    scrollbar-width: none;
 }
 
 #child1 #psimg {
@@ -175,8 +177,9 @@ header img:hover {
     border-radius: 8px;
 }
 
-#forgotpassword {
-    font-size: 10px;
+#forgotpassword a{
+    color: blue;
+    font-size: 20px;
     text-align: center;
     font-style: italic;
 }
@@ -200,6 +203,16 @@ header img:hover {
     'updategame'
     'allgames'
     'logout';
+}
+
+#contentarea {
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
 }
 
 #profile {
