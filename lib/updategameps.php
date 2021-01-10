@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    function insertdata() {
+    function updatedata() {
         
         $errors = array();
 
@@ -13,31 +13,48 @@
         $gt = (int)mysqli_real_escape_string($mysqli,$_POST['gt']);
         $rating = (int)mysqli_real_escape_string($mysqli,$_POST['rating']);
         $date = date('Y-m-d H:i:s');
-        $total = $bt+$st+$gt;
-        if($total == 50) {
-            $platinum = "YES";
-        }
-        else {
-            $platinum = "NO";
-        }
 
         $game_check_query = "SELECT * FROM ps WHERE name='$name' LIMIT 1";
         $res = mysqli_query($mysqli,$game_check_query);
         $game = mysqli_fetch_assoc($res);
         if($game) {
             if ($game['name'] === $name) {
-                array_push($errors, "Game already exists");
+                $btnew = $bt+$game['bronze'];
+                $stnew = $st+$game['silver'];
+                $gtnew = $gt+$game['gold'];
+                $totalnew = $btnew+$stnew+$gtnew;
+                if ($totalnew > 50) {
+                    array_push($errors, "Trophy exceeds limit.");
+                }
+                if ($btnew > 35) {
+                    array_push($errors, "Bronze trophies exceeds limit.");
+                }
+                if ($stnew > 12) {
+                    array_push($errors, "Silver trophies exceeds limit.");
+                }
+                if ($gtnew > 3) {
+                    array_push($errors, "Gold trophies exceeds limit.");
+                }
             }
+        }
+        else {
+            array_push($errors, "Game does not exist.");
         }
 
         if(count($errors) == 0) {
-            $query = "INSERT INTO ps (gamerid, name, bronze, silver, gold, total, platinum, updatedate, rating) VALUES ('$gamerid','$name', $bt, $st, $gt, $total, '$platinum' , '$date', $rating)";
+            if($totalnew == 50) {
+                $platinum = "YES";
+            }
+            else {
+                $platinum = "NO";
+            }
+            $query = "UPDATE ps SET bronze = '$btnew', silver = '$stnew', gold = '$gtnew', total = '$totalnew', rating = '$rating', platinum = '$platinum', updatedate='$date' WHERE gamerid = '$gamerid' and name = '$name'";
             mysqli_query($mysqli,$query);
             header('location: ./dashboardps.php');
         }
         else {
-            echo "<script>alert('Game already exists. Try updating game facts.');
-                  window.location.href='./newgameps.php';
+            echo "<script>alert('Trophy information incorrect OR Game does not exist.');
+                  window.location.href='./updategameps.php';
                   </script>";
         }
 
@@ -47,14 +64,14 @@
     }
     else {
         if(isset($_POST['submit'])) {
-            insertdata();
+            updatedata();
         }
     }
 ?>
 
 <html>
     <head>
-        <title>Add New Game</title>
+        <title>Update Trophies</title>
         <link rel="stylesheet" href="../css/main.css">
     </head>
     <body>
@@ -67,11 +84,11 @@
                 <div id="profile">
                     <a href="./dashboardps.php"> Profile </a>
                 </div>
-                <div id="newgame" class="active">
-                    <a href="#" class="active"> Add Game </a>
+                <div id="newgame">
+                    <a href="./newgameps.php" class="active"> Add Game </a>
                 </div>
-                <div id="updategame">
-                    <a href="./updategameps.php"> Update Game </a>
+                <div id="updategame" class="active">
+                    <a href="#" class="active"> Update Game </a>
                 </div>
                 <div id="allgames">
                     <a href="./allgamesps.php"> View Games </a>
@@ -81,8 +98,8 @@
                 </div>
             </div>
             <div id="contentarea">
-                <form method="POST" action="newgameps.php">
-                    <div>
+                <form method="POST" action="updategameps.php">
+                <div>
                         Game:
                         <br>
                         <input type="text" required autofocus name="gname"/>
@@ -113,7 +130,7 @@
                     </div>
                     <br>
                     <div>
-                        <input type="submit" name="submit" value="Insert" id="submit">
+                        <input type="submit" name="submit" value="Update" id="submit">
                     </div>
                     
                 </form>
