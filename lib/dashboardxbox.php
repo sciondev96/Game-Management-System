@@ -22,13 +22,13 @@
                     <a class="active" href="#"> Profile </a>
                 </div>
                 <div id="newgame">
-                    <a href="./newgame.php"> Add Game </a>
+                    <a href="./newgamexbox.php"> Add Game </a>
                 </div>
                 <div id="updategame">
-                    <a href="./updategame.php"> Update Game </a>
+                    <a href="./updategamexbox.php"> Update Game </a>
                 </div>
                 <div id="allgames">
-                    <a href="./allgames.php"> View Games </a>
+                    <a href="./allgamesxbox.php"> View Games </a>
                 </div>
                 <div id="logout">
                     <a href="#"> Logout </a>

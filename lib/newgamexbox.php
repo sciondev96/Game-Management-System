@@ -25,11 +25,11 @@
         if(count($errors) == 0) {
             $query = "INSERT INTO xbox (gamerid, name, gamerscore, completion, updatedate, rating) VALUES ('$gamerid','$name',$score,$completion , '$date', $rating)";
             mysqli_query($mysqli,$query);
-            header('location: ./dashboard.php');
+            header('location: ./dashboardxbox.php');
         }
         else {
             echo "<script>alert('Game already exists. Try updating game facts.');
-                  window.location.href='./newgame.php';
+                  window.location.href='./newgamexbox.php';
                   </script>";
         }
 
@@ -73,7 +73,7 @@
                 </div>
             </div>
             <div id="contentarea">
-                <form method="POST" action="newgame.php">
+                <form method="POST" action="newgamexbox.php">
                     <div>
                         Game:
                         <br>

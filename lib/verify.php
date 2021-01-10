@@ -17,7 +17,18 @@
         echo "<script>window.history.back();</script>";
     }
     else {
-        $_SESSION['username'] = $id;
-        header("location: ./dashboard.php");
+        $res = mysqli_fetch_assoc($result);
+        $platform = $res['platform'];
+        if($platform === "Xbox") {
+            $_SESSION['platform'] = $platform;
+            $_SESSION['username'] = $id;
+            header("location: ./dashboardxbox.php");
+        }
+        else {
+            $_SESSION['platform'] = $platform;
+            $_SESSION['username'] = $id;
+            header("location: ./dashboardps.php");
+        }
+        
     }
 ?>
