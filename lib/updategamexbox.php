@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    function insertdata() {
+    function updatedata() {
         
         $errors = array();
 
@@ -16,20 +16,27 @@
         $game_check_query = "SELECT * FROM xbox WHERE name='$name' LIMIT 1";
         $res = mysqli_query($mysqli,$game_check_query);
         $game = mysqli_fetch_assoc($res);
+        $updatescore = $score+$game['gamerscore'];
         if($game) {
             if ($game['name'] === $name) {
-                array_push($errors, "Game already exists");
+                if ($updatescore > 1000) {
+                    array_push($errors, "Gamerscore exceeds limit.");
+                }
             }
+        }
+        else {
+            array_push($errors, "Game does not exist.");
         }
 
         if(count($errors) == 0) {
-            $query = "INSERT INTO xbox (gamerid, name, gamerscore, completion, updatedate, rating) VALUES ('$gamerid','$name',$score,$completion , '$date', $rating)";
+            $completion = ($updatescore/1000)*100;
+            $query = "UPDATE xbox SET gamerscore = '$updatescore', rating = '$rating', completion='$completion', updatedate='$date' WHERE gamerid = '$gamerid' and name = '$name'";
             mysqli_query($mysqli,$query);
             header('location: ./dashboardxbox.php');
         }
         else {
-            echo "<script>alert('Game already exists. Try updating game facts.');
-                  window.location.href='./newgamexbox.php';
+            echo "<script>alert('Gamescore exceeds limit of 1000 OR Game does not exist.');
+                  window.location.href='./updategamexbox.php';
                   </script>";
         }
 
@@ -39,14 +46,14 @@
     }
     else {
         if(isset($_POST['submit'])) {
-            insertdata();
+            updatedata();
         }
     }
 ?>
 
 <html>
     <head>
-        <title>Add New Game</title>
+        <title>Update Game Score</title>
         <link rel="stylesheet" href="../css/main.css">
     </head>
     <body>
@@ -59,11 +66,11 @@
                 <div id="profile">
                     <a href="./dashboardxbox.php"> Profile </a>
                 </div>
-                <div id="newgame" class="active">
-                    <a href="#" class="active"> Add Game </a>
+                <div id="newgame">
+                    <a href="./newgamexbox.php" class="active"> Add Game </a>
                 </div>
-                <div id="updategame">
-                    <a href="./updategamexbox.php"> Update Game </a>
+                <div id="updategame" class="active">
+                    <a href="#"> Update Game </a>
                 </div>
                 <div id="allgames">
                     <a href="./allgames.php"> View Games </a>
@@ -73,7 +80,7 @@
                 </div>
             </div>
             <div id="contentarea">
-                <form method="POST" action="newgamexbox.php">
+                <form method="POST" action="updategamexbox.php">
                     <div>
                         Game:
                         <br>
@@ -95,7 +102,7 @@
                     </div>
                     <br>
                     <div>
-                        <input type="submit" name="submit" value="Insert" id="submit">
+                        <input type="submit" name="submit" value="Update" id="submit">
                     </div>
                     
                 </form>
