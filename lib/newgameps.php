@@ -25,7 +25,7 @@
         $res = mysqli_query($mysqli,$game_check_query);
         $game = mysqli_fetch_assoc($res);
         if($game) {
-            if ($game['name'] === $name) {
+            if ($game['name'] === $name and $game['gamerid'] === $gamerid) {
                 array_push($errors, "Game already exists");
             }
         }
