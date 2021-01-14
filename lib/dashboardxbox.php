@@ -96,14 +96,16 @@
             <?php $profile = displayprofile(); 
                   $row = mysqli_fetch_array($profile) 
             ?>
-            NAME: <?php echo $row['gamerid']; ?>
-            <br> 
-            PHONE: <?php echo $row['phnum']; ?>
-            <br>
-            PLATFORM: <?php echo $row['platform']; ?>
-            <br>
-            EMAIL: <?php echo $row['email']; ?>
-            <br>
+            <span id="det">
+                <label id="details">GamerID:&nbsp;</label>&emsp;<?php echo $row['gamerid']; ?>
+                <br> 
+                <label id="details">Phone:&nbsp;</label>&emsp;<?php echo $row['phnum']; ?>
+                <br>
+                <label id="details">Platform:&nbsp;</label>&emsp;<?php echo "Xbox"; ?>
+                <br>
+                <label id="details">Email:&nbsp;</label>&emsp;<?php echo $row['email']; ?>
+                <br>
+            </span>
             <h2 id="h2style">RECENTLY PLAYED</h2>
             <?php $games = displayrecentlyplayed(); ?>
             <table id="displaytable">

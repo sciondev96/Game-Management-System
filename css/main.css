@@ -379,3 +379,13 @@ a.logoutref:hover {
     height: 20px;
     vertical-align: middle;
 }
+
+#details {
+    font-size: 25px;
+    color: aquamarine;
+    background-color: black;
+}
+
+#det {
+    font-size: 30px;
+}
